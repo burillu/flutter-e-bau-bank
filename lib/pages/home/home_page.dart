@@ -1,3 +1,4 @@
+import 'package:e_bau_bank/components/section_input.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,7 +42,32 @@ Widget main() => Positioned(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(12), topRight: Radius.circular(12)),
         ),
-        child: SectionInput(title: "Dati Anagrafici"),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SectionInput(
+                title: "Dati Anagrafici",
+                label: "Nome e Cognome",
+              ),
+              BoxSeparator(),
+              SectionInput(
+                title: "Dati Anagrafici",
+                label: "Nome e Cognome",
+              ),
+              BoxSeparator(),
+              SectionInput(
+                title: "Dati Anagrafici",
+                label: "Nome e Cognome",
+              ),
+              BoxSeparator(),
+              SectionInput(
+                title: "Dati Anagrafici",
+                label: "Nome e Cognome",
+              ),
+              BoxSeparator(),
+            ],
+          ),
+        ),
       ),
     );
 
@@ -64,46 +90,6 @@ Widget title() => const Positioned(
         ),
       ),
     );
-
-class SectionInput extends StatelessWidget {
-  final String title;
-
-  const SectionInput({required this.title});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title.toUpperCase(),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black54,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            height: 50,
-            decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(6)),
-            child: TextField(
-              style: TextStyle(backgroundColor: Colors.blue),
-              decoration: InputDecoration(
-                  label: Text("Nome e Cognome"),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16),
-                  border: InputBorder.none),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
 
 class BoxSeparator extends StatelessWidget {
   @override

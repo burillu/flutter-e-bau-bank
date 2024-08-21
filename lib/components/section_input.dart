@@ -1,11 +1,10 @@
-import 'package:e_bau_bank/components/input_field.dart';
 import 'package:flutter/material.dart';
 
 class SectionInput extends StatelessWidget {
   final String title;
-  final String label;
+  final Widget inputFieldCustom;
 
-  const SectionInput({required this.title, required this.label});
+  const SectionInput({required this.title, required this.inputFieldCustom});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,6 +12,9 @@ class SectionInput extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 15,
+          ),
           Text(
             title.toUpperCase(),
             style: TextStyle(
@@ -23,11 +25,7 @@ class SectionInput extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          InputField(label: label),
-          SizedBox(
-            height: 10,
-          ),
-          InputField(label: "Eta'")
+          inputFieldCustom,
         ],
       ),
     );

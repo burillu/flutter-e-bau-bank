@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  final String label;
+  final String hintText;
+  final TextInputType textInputType;
 
-  const InputField({required this.label});
+  const InputField(
+      {required this.hintText, this.textInputType = TextInputType.text});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,11 +14,13 @@ class InputField extends StatelessWidget {
             color: Colors.grey.shade200,
             borderRadius: BorderRadius.circular(6)),
         child: TextField(
-          style: TextStyle(backgroundColor: Colors.blue),
+          keyboardType: textInputType,
+          //style: TextStyle(backgroundColor: Colors.blue),
           decoration: InputDecoration(
-              label: Text(label),
-              contentPadding: EdgeInsets.symmetric(horizontal: 16),
-              border: InputBorder.none),
+            hintText: hintText,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            border: InputBorder.none,
+          ),
         ));
   }
 }
